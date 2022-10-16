@@ -9,7 +9,7 @@ public class creatExercise01 {
     //产生题目和答案并放入对应文件中
     public creatExercise01(int n) {
         Random r = new Random();
-
+        MyJFrame myJFrame = new MyJFrame();
         //清空Exercises.txt和Answers.txt文件夹中的内容
         try{
             new FileWriter("Exercises.txt").write("");
@@ -21,13 +21,9 @@ public class creatExercise01 {
         //用来统计产生过的总题目数量,这个可以不要,就是用来统计一下确保确实可以产生不重复题目
         int count = 0;
 
-        //用一个参数来决定生成题目的数量
-        Scanner sc = new Scanner(System.in);
-        System.out.println("请输入你想生成的题目数量:");
-        int number = sc.nextInt();
         //定义一个数组存放未重复的题目
-        String[] arr = new String[number + 1];
-        for (int i = 1; i < number + 1; ) {
+        String[] arr = new String[myJFrame.getN() + 1];
+        for (int i = 1; i <myJFrame.getN() ; ) {
             int random = r.nextInt(3);//产生一个随机数用来决定生成几个运算符的算式
             //调用类creatArithmetic01中生成算式的方法
             creatArithmetic01 ca = new creatArithmetic01(n);
@@ -54,7 +50,7 @@ public class creatExercise01 {
             count++;
         }
         System.out.println("生成过" + count +"道题目");
-        System.out.println("生成题目时重复了"+ (count - number) + "道题目");
+        System.out.println("生成题目时重复了"+ (count - myJFrame.getN()) + "道题目");
     }
 
     //定义一个带参方法用来判断数组是否包含该元素,返回true或false

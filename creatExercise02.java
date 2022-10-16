@@ -9,6 +9,7 @@ import java.util.Scanner;
 public class creatExercise02 {                 //这个类所有解释直接参照creatExercise01
     //产生题目和答案并放入对应文件中
     public creatExercise02(int n) {
+        MyJFrame myJFrame = new MyJFrame();
         //清空Exercises.txt和Answers.txt文件夹中的内容
         try{
             new FileWriter("Exercises.txt").write("");
@@ -19,14 +20,10 @@ public class creatExercise02 {                 //这个类所有解释直接参�
         Random r = new Random();
         //用来统计产生过的总题目数量
         int count = 0;
-        //产生不重复的题目
-        System.out.println("请输入你想生成的题目数量:");
-        Scanner sc = new Scanner(System.in);
-        int number = sc.nextInt();
         //用一个数组存放未重复的题目
-        String[] arr = new String[number + 1];
+        String[] arr = new String[myJFrame.getN() + 1];
         //随机生成哪种运算
-        for (int i = 1; i < number + 1; ) {
+        for (int i = 1; i < myJFrame.getN() + 1; ) {
             int random = r.nextInt(3);
             //random为0产生一个运算符的,random不为0产生两个运算符的
             creatArithmetic02 ca = new creatArithmetic02(n);
@@ -54,7 +51,7 @@ public class creatExercise02 {                 //这个类所有解释直接参�
             count++;
         }
         System.out.println("生成过" + count +"道题目");
-        System.out.println("生成题目时重复了"+ (count - number) + "道题目");
+        System.out.println("生成题目时重复了"+ (count - myJFrame.getN()) + "道题目");
     }
 
     //判断数组是否包含该元素

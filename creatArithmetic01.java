@@ -2,7 +2,6 @@ import java.util.Random;
 
 //生成带括号的题目
 public class creatArithmetic01 {
-
     String process;//表示含有一个运算符且不含=的式子,如"1 ＋ 1"这种形式
     String process1;//表示含有一个运算符且含=的式子,如"1 ＋ 1 ="这种形式
     String process2;//表示含有两个个运算符且含=的式子,如"1 ＋ 1 ＋ 1 ="这种形式
